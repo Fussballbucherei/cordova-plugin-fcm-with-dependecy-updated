@@ -36,7 +36,8 @@ export class FCMPlugin {
 
     constructor() {
         // EventTarget is not fully supported on iOS and older Android
-        this.eventTarget = document.createElement('div')
+
+        this.eventTarget = document;
         execAsPromise('ready')
             .catch((error: Error) => console.log('FCM: Ready error: ', error))
             .then(() => {
