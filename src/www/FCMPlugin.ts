@@ -5,6 +5,7 @@ import type { IDisposable } from './IDisposable'
 import { execAsPromise } from './execAsPromise'
 import { asDisposableListener } from './eventAsDisposable'
 import { bridgeNativeEvents } from './bridgeNativeEvents'
+
 declare var window: {
     cordova: {
         platformId: string
@@ -37,7 +38,7 @@ export class FCMPlugin {
     constructor() {
         // EventTarget is not fully supported on iOS and older Android
 
-        this.eventTarget = document;
+        this.eventTarget = window;
         execAsPromise('ready')
             .catch((error: Error) => console.log('FCM: Ready error: ', error))
             .then(() => {

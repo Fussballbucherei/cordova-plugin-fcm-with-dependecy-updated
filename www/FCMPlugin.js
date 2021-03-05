@@ -35,7 +35,7 @@ var bridgeNativeEvents = function (eventTarget) {
 var FCMPlugin = (function () {
     function FCMPlugin() {
         var _this = this;
-        this.eventTarget = document;
+        this.eventTarget = window;
         execAsPromise('ready')
             .catch(function (error) { return console.log('FCM: Ready error: ', error); })
             .then(function () {
